@@ -1,0 +1,18 @@
+{
+  "name": "neo-order-dashboard",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Order Management Dashboard UI",
+  "scripts": {
+    "lint:css": "stylelint \"**/*.css\"",
+    "lint:js": "eslint \"**/*.js\"",
+    "lint": "npm run lint:css && npm run lint:js",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "prettier": "^3.2.5",
+    "stylelint": "^16.2.0",
+    "stylelint-config-standard": "^36.0.0"
+  }
+}

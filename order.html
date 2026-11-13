@@ -1,9 +1,10 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Neo-order</title>
+    <title>Neo-order | Order Management Dashboard</title>
+    <link rel="stylesheet" href="design-system.css" />
     <link rel="stylesheet" href="order.css" />
     <link
       rel="stylesheet"
@@ -14,175 +15,226 @@
     />
   </head>
   <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <header>
-      <!-- logo -->
       <div class="logo-container">
         <h1><i class="fa-solid fa-cart-shopping"></i>NEO-ORDER</h1>
       </div>
-      <!-- SEARCH -->
       <div class="search">
-        <input type="text" placeholder="Search..." />
-        <button type="submit"><i class="fa fa-search"></i></button>
+        <label for="order-search" class="visually-hidden">Search orders</label>
+        <input type="text" id="order-search" placeholder="Search..." aria-label="Search orders" />
+        <button type="button" aria-label="Search">
+          <i class="fa fa-search" aria-hidden="true"></i>
+        </button>
       </div>
-      <!-- date status payment dropdowns -->
       <div class="head-dropdowns">
-        <!-- date -->
-        <select name="date" id="date">
+        <label for="date-filter" class="visually-hidden">Date filter</label>
+        <select name="date" id="date-filter" aria-label="Date filter">
           <option value="date">Date</option>
           <option value="today">Today</option>
           <option value="this-week">This Week</option>
           <option value="this-month">This Month</option>
           <option value="this-year">This Year</option>
         </select>
-        <!-- status -->
-        <select name="Status" id="status">
+        <label for="status-filter" class="visually-hidden">Status filter</label>
+        <select name="Status" id="status-filter" aria-label="Status filter">
           <option value="">Status</option>
-          <option value="">Pending</option>
-          <option value="">Cancelled</option>
-          <option value="">Shipped</option>
+          <option value="Pending">Pending</option>
+          <option value="Cancelled">Cancelled</option>
+          <option value="Shipped">Shipped</option>
         </select>
-        <!-- payment method -->
-        <select name="payment" id="payment">
+        <label for="payment-filter" class="visually-hidden">Payment method filter</label>
+        <select name="payment" id="payment-filter" aria-label="Payment method filter">
           <option value="">Payment Method</option>
-          <option value="">Credit Card</option>
-          <option value="">Paypal</option>
-          <option value="">Cash on Delivery</option>
+          <option value="Credit Card">Credit Card</option>
+          <option value="Paypal">Paypal</option>
+          <option value="Cash on Delivery">Cash on Delivery</option>
         </select>
       </div>
-      <!-- notification and avatar container -->
-      <div class="notice-avatar">
+      <div class="notice-avatar" aria-label="Notifications and profile">
         <div class="notification">
           <i class="fa-solid fa-bell"></i>
           <span class="badge">3</span>
         </div>
-       
-          <i class="fa fas-user"></i>
-      
+        <i class="fa-solid fa-user" aria-label="User profile"></i>
       </div>
     </header>
-    <main>
-        <!-- sidebar -->
-         <div class="sidebar">
+    <main id="main-content">
+      <div class="sidebar">
         <ul>
-          <li><a href="#"><i class="fa fa-home"></i> Dashboard</a></li>
-          <li class="active"><a href="#"><i class="fa fa-shopping-cart"></i> Orders</a></li>
-          <li><a href="#"><i class="fa fa-box"></i> Products</a></li>
-          <li><a href="#"><i class="fa fa-users"></i> Customers</a></li>
-          <li><a href="#"><i class="fa fa-chart-bar"></i> Reports</a></li>
-          <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
-         </div>
-         <!-- content side -->
-         <div class="content-side">
-                  <!-- cards -->
-                  <div class="cards">
-                    <div class="card">
-                        <h3>Total Orders</h3>
-                        <p>1,250</p>
-                       </div>
-                    <div class="card">
-                        <h3>Pending</h3>
-                        <p>320</p>
-                        </div>
-                    <div class="card">
-                        <h3>Shipped</h3>
-                        <p>900</p>
-                       </div>   
-                       <div class="card">
-                        <h3>Cancelled</h3>
-                        <p>30</p>
-                       </div>
-                       <div class="card">
-                        <h3>Total Revenue</h3>
-                        <p>$75,000</p>
-                       </div>
-                  </div>
-                  <!-- order tab and customer info -->
-                    <div class="order-info">
-                                       <!-- order table -->
-                   <div class="order-tab">
-                    <h3>Order List</h3>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Order ID</th>
-                                <th>Customer</th>
-                                <th>Date</th>
-                                <th>Amount</th>
-                                <th>Status</th>
-                                <th>Payment</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>ORD-1245</td>
-                                <td>Alabi Sandra</td>
-                                <td>04/2025</td>
-                                <td>$22.30</td>
-                                <td class="shipped">Shipped</td>
-                                <td>Credit Card</td>
-                            </tr>
-                            <tr>
-                                <td>ORD-1246</td>
-                                <td>Amadi Bethel</td>
-                                <td>04/2025</td>
-                                <td>$15.00</td>
-                                <td class="pending">Pending</td>
-                                <td>Paypal</td>
-                            </tr>
-                            <tr>
-                                <td>ORD-1247</td>
-                                <td>Doctor Ian</td>
-                                <td>04/2025</td>
-                                <td>$45.50</td>
-                                <td class="cancelled">Cancelled</td>
-                                <td>Transfer</td>
-                            </tr>
-                            <tr>
-                                <td>ORD-1248</td>
-                                <td>Dev Haven</td>
-                                <td>04/2025</td>
-                                <td>$30.00</td>
-                                <td class="shipped">Shipped</td>
-                                <td>Credit Card</td>
-                            </tr>
-                            <tr>
-                                <td>ORD-1249</td>
-                                <td>Designer Ahlam</td>
-                                <td>04/2025</td>
-                                <td>$12.75</td>
-                                <td class="pending">Pending</td>
-                                <td>Paypal</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                                            <!-- numbers -->
-                    <div class="number-container">
-                      <p class="active">1</p>
-                      <p>2</p>
-                   </div>
-                   </div>
-                   <!-- customer info -->
-                    <div class="customer-info">
-                        <h3>Alabi Sandra</h3>
-                        <p>alabisandra@gmail.com</p>
-                        <p>+1 234 567 8901</p>
-                        <p>1234 Elm Street, Springfield, IL, 62704</p>
-                        <div class="previous-orders">
-                            <h4>Previous Orders</h4>
-                            <ul>
-                                <li>ORD-1201 - $45.00 - Delivered</li>
-                                <li>ORD-1215 - $30.50 - Delivered</li>
-                                <li>ORD-1230 - $22.75 - Cancelled</li>
-                            </ul>
-                        </div>
-                        
-                          <button class="download">Download Order List</button>
-                        <a class="check-out"><p>Check out other orders</p></a>
-                      
-                     
-                    </div>
-                    </div>
-         </div>
+          <li>
+            <a href="#"><i class="fa fa-home"></i> Dashboard</a>
+          </li>
+          <li class="active">
+            <a href="#"><i class="fa fa-shopping-cart"></i> Orders</a>
+          </li>
+          <li>
+            <a href="#"><i class="fa fa-box"></i> Products</a>
+          </li>
+          <li>
+            <a href="#"><i class="fa fa-users"></i> Customers</a>
+          </li>
+          <li>
+            <a href="#"><i class="fa fa-chart-bar"></i> Reports</a>
+          </li>
+          <li>
+            <a href="#"><i class="fa fa-cog"></i> Settings</a>
+          </li>
+        </ul>
+      </div>
+      <div class="content-side">
+        <div class="cards">
+          <div class="card">
+            <h3>Total Orders</h3>
+            <p>1,250</p>
+          </div>
+          <div class="card">
+            <h3>Pending</h3>
+            <p>320</p>
+          </div>
+          <div class="card">
+            <h3>Shipped</h3>
+            <p>900</p>
+          </div>
+          <div class="card">
+            <h3>Cancelled</h3>
+            <p>30</p>
+          </div>
+          <div class="card">
+            <h3>Total Revenue</h3>
+            <p>$75,000</p>
+          </div>
+        </div>
+
+        <div class="order-info">
+          <div class="order-tab">
+            <h3>Order List</h3>
+            <div class="table-wrap">
+              <table id="order-table" aria-label="Orders list">
+                <thead>
+                  <tr>
+                    <th scope="col">Order ID</th>
+                    <th scope="col">Customer</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Payment</th>
+                  </tr>
+                </thead>
+                <tbody id="orderTableBody">
+                  <tr
+                    data-status="Shipped"
+                    data-payment="Credit Card"
+                    data-days-ago="0"
+                    data-customer="Alabi Sandra"
+                    data-email="alabisandra@gmail.com"
+                    data-phone="+1 234 567 8901"
+                    data-address="1234 Elm Street, Springfield, IL, 62704"
+                  >
+                    <td>ORD-1245</td>
+                    <td>Alabi Sandra</td>
+                    <td>04/2025</td>
+                    <td>$22.30</td>
+                    <td><span class="status shipped">Shipped</span></td>
+                    <td>Credit Card</td>
+                  </tr>
+                  <tr
+                    data-status="Pending"
+                    data-payment="Paypal"
+                    data-days-ago="3"
+                    data-customer="Amadi Bethel"
+                    data-email="amadibethel@gmail.com"
+                    data-phone="+1 234 567 8902"
+                    data-address="56 Oak Avenue, Springfield, IL, 62704"
+                  >
+                    <td>ORD-1246</td>
+                    <td>Amadi Bethel</td>
+                    <td>04/2025</td>
+                    <td>$15.00</td>
+                    <td><span class="status pending">Pending</span></td>
+                    <td>Paypal</td>
+                  </tr>
+                  <tr
+                    data-status="Cancelled"
+                    data-payment="Cash on Delivery"
+                    data-days-ago="12"
+                    data-customer="Doctor Ian"
+                    data-email="doctorian@gmail.com"
+                    data-phone="+1 234 567 8903"
+                    data-address="89 Pine Road, Springfield, IL, 62704"
+                  >
+                    <td>ORD-1247</td>
+                    <td>Doctor Ian</td>
+                    <td>04/2025</td>
+                    <td>$45.50</td>
+                    <td><span class="status cancelled">Cancelled</span></td>
+                    <td>Cash on Delivery</td>
+                  </tr>
+                  <tr
+                    data-status="Shipped"
+                    data-payment="Credit Card"
+                    data-days-ago="60"
+                    data-customer="Dev Haven"
+                    data-email="devhaven@gmail.com"
+                    data-phone="+1 234 567 8904"
+                    data-address="12 Maple Court, Springfield, IL, 62704"
+                  >
+                    <td>ORD-1248</td>
+                    <td>Dev Haven</td>
+                    <td>04/2025</td>
+                    <td>$30.00</td>
+                    <td><span class="status shipped">Shipped</span></td>
+                    <td>Credit Card</td>
+                  </tr>
+                  <tr
+                    data-status="Pending"
+                    data-payment="Paypal"
+                    data-days-ago="400"
+                    data-customer="Designer Ahlam"
+                    data-email="designerahlam@gmail.com"
+                    data-phone="+1 234 567 8905"
+                    data-address="34 Birch Lane, Springfield, IL, 62704"
+                  >
+                    <td>ORD-1249</td>
+                    <td>Designer Ahlam</td>
+                    <td>04/2025</td>
+                    <td>$12.75</td>
+                    <td><span class="status pending">Pending</span></td>
+                    <td>Paypal</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p id="orderCount" class="order-count" aria-live="polite">Showing 1–5 of 5 orders</p>
+            <div class="number-container" role="navigation" aria-label="Pagination">
+              <button type="button" class="page-btn active" data-page="1" aria-label="Page 1">
+                1
+              </button>
+              <button type="button" class="page-btn" data-page="2" aria-label="Page 2">2</button>
+            </div>
+          </div>
+
+          <div class="customer-info" aria-live="polite">
+            <h3 id="customerName">Alabi Sandra</h3>
+            <p id="customerEmail">alabisandra@gmail.com</p>
+            <p id="customerPhone">+1 234 567 8901</p>
+            <p id="customerAddress">1234 Elm Street, Springfield, IL, 62704</p>
+            <div class="previous-orders">
+              <h4>Previous Orders</h4>
+              <ul>
+                <li>ORD-1201 - $45.00 - Delivered</li>
+                <li>ORD-1215 - $30.50 - Delivered</li>
+                <li>ORD-1230 - $22.75 - Cancelled</li>
+              </ul>
+            </div>
+            <button type="button" class="download" id="downloadOrders">Download Order List</button>
+            <a class="check-out" href="#order-table"><p>Check out other orders</p></a>
+          </div>
+        </div>
+      </div>
     </main>
+
+    <script src="order.js"></script>
   </body>
 </html>
